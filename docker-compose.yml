@@ -4,5 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      image: 312566475948.dkr.ecr.eu-north-1.amazonaws.com/calculator-website:latest
     ports:
       - 3000:3000
