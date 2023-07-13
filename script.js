@@ -20,3 +20,14 @@ function appendToResult(value) {
     result.value = '';
   }
   
+
+  function calculate(expression) {
+    try {
+      const answer = eval(expression);
+      return answer;
+    } catch (error) {
+      return 'Error';
+    }
+  }
+  
+  module.exports = calculate;
