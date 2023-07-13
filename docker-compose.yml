@@ -1,6 +1,6 @@
 version: '3'
 services:
   calculator-website:
-      image: 312566475948.dkr.ecr.eu-north-1.amazonaws.com/calculator-website:latest
+      image: 312566475948.dkr.ecr.ap-south-1.amazonaws.com/calculator-website:latest
     ports:
       - 3000:3000
