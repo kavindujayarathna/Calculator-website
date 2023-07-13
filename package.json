@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "This is a JS and Nodejs application",
   "dependencies": {
     "express": "^4.18.2"
   }
