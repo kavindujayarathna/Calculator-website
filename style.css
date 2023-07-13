@@ -1,11 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #676767;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
+
+
   
   .calculator {
     width: 250px;
