@@ -2,7 +2,7 @@
 FROM node:13-alpine
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /home/app
 
 # Install the project dependencies
 RUN npm install
