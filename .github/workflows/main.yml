@@ -54,12 +54,3 @@ jobs:
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-
-   deploy:
-    needs: push-to-ecr
-     - name: Pull Docker image from ECR
-        run: docker pull 312566475948.dkr.ecr.ap-south-1.amazonaws.com/calculator-website:latest
-
-         - name: Run Docker container
-        run: |
-          docker run -d -p 80:80 312566475948.dkr.ecr.<ap-south-1>.amazonaws.com/calculator-website:latest
