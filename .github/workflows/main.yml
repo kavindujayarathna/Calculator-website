@@ -25,7 +25,7 @@ build-and-test:
       - name: Run tests
         run: npm test
 
-  push-to-ecr:
+  build-and-push:
     needs: build-and-test
     runs-on: ubuntu-latest
 
