@@ -1,11 +1,34 @@
-name: Build and Push Golang Image to AWS ECR
+name: Test and Push
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+
 jobs:
-  build-and-push:
-    name: Build and Push to ECR
+
+build-and-test:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+  push-to-ecr:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -27,7 +50,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: calculator-website
-        IMAGE_TAG: 1.6
+        IMAGE_TAG: 1.7
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
