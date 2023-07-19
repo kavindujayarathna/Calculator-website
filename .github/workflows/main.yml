@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm test --prefix test
+        run: npm test
 
   push-to-ecr:
     needs: build-and-test
