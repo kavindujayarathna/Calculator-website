@@ -17,5 +17,9 @@
     "chai": "^x.x.x",
     "express": "^4.17.1",
     "mocha": "^7.2.0"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "debug": "^4.3.4"
   }
 }
