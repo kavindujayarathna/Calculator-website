@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      ACTIONS_RUNNER_DEBUG: true
       AWS_REGION: ap-south-1
       ECR_REPOSITORY: calculator-website
       ECS_SERVICE: calculator-website
