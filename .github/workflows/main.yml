@@ -13,7 +13,7 @@ jobs:
       AWS_REGION: ap-south-1
       ECR_REPOSITORY: calculator-website
       ECS_SERVICE: calculator-website
-      ECS_CLUSTER: calculator-website
+      ECS_CLUSTER: calculator-website01
       ECS_TASK_DEFINITION: .github/workflows/task-definition.json
       CONTAINER_NAME: calculator-website
 
