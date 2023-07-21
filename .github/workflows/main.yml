@@ -63,7 +63,7 @@ jobs:
       - name: Build, Tag, and Push the Image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: task-definition.json
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: calculator-website
           IMAGE_TAG: ${{ github.sha }}
         run: |
@@ -75,7 +75,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          task-definition: task-definition.json
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
