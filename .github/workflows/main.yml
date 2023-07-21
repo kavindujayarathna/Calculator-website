@@ -52,7 +52,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-to-assume:   
+          role-to-assume: arn:aws:iam::312566475948:role/ecsTaskExecutionRole  
           role-session-name: Github
           aws-region: ap-south-1
 
