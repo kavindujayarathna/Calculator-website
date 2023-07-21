@@ -1,4 +1,4 @@
-name: Test and Push
+name: Test, Push And Deploy
 
 on:
   push:
@@ -13,15 +13,6 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     environment: production
-
-    env:
-      ACTIONS_RUNNER_DEBUG: true
-      AWS_REGION: ap-south-1
-      ECR_REPOSITORY: calculator-website
-      ECS_SERVICE: calculator-website
-      ECS_CLUSTER: calculator-website01
-      ECS_TASK_DEFINITION: .github/workflows/task-definition.json
-      CONTAINER_NAME: calculator-website
 
     steps:
       - name: Checkout code
@@ -65,7 +56,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: calculator-website
-          IMAGE_TAG: 1.8
+          IMAGE_TAG: 1.9
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
