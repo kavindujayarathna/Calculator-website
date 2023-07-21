@@ -12,6 +12,7 @@ jobs:
   build-and-test:
     name: Testing
     runs-on: ubuntu-latest
+    environment: production
 
     env:
       ACTIONS_RUNNER_DEBUG: true
