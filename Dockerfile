@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose port 3000
-EXPOSE 3000
+EXPOSE 8080
 
 # Define the command to run when the container starts
-CMD [ "node", "server.js" ]
+CMD [ "node", "index.js" ]
