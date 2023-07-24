@@ -22,3 +22,6 @@ app.post('/calculate', (req, res) => {
 app.listen(8080, () => {
     console.log('App is listening on PORT 8080');
 });
+
+
+module.exports = app;

@@ -13,7 +13,7 @@ RUN npm install
 # Copy all the files to the container's working directory
 COPY . .
 
-# Expose port 3000
+# Expose port 8080
 EXPOSE 8080
 
 # Define the command to run when the container starts
