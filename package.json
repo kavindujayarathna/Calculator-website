@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --testTimeout=10000"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
