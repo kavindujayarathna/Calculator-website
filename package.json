@@ -11,7 +11,7 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "jest": "^xx.x.x",
+    "jest": "^29.6.1",
     "supertest": "^6.3.3"
   }
 }
