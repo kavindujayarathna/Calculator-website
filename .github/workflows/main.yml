@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-     env:
+    env:
       ACTIONS_RUNNER_DEBUG: true
       AWS_REGION: ap-south-1
       ECR_REPOSITORY: calculator-website
@@ -22,7 +22,7 @@ jobs:
       ECS_CLUSTER: calculator-website01
       ECS_TASK_DEFINITION: .github/workflows/task-definition.json
       CONTAINER_NAME: calculator-website
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npx jest
+        run: npm test
 
   push-to-ecr:
     needs: build-and-test
