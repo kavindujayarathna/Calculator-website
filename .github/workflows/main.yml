@@ -24,7 +24,7 @@ jobs:
           node-version: 14
 
       - name: Run tests
-        run: npx jest
+        run: npm test
 
   push-to-ecr:
     needs: build-and-test
