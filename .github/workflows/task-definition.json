@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:312566475948:task-definition/calculator-website:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/calculator-website:4",
     "containerDefinitions": [
         {
             "name": "calculator-website",
-            "image": "312566475948.dkr.ecr.ap-south-1.amazonaws.com/calculator-website",
+            "image": "435226287336.dkr.ecr.ap-south-1.amazonaws.com/calculator-website",
             "cpu": 0,
             "portMappings": [
                 {
@@ -24,18 +24,19 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/calculator-website",
+                    "awslogs-group": "/ecs/",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             }
         }
     ],
     "family": "calculator-website",
-    "taskRoleArn": "arn:aws:iam::312566475948:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::312566475948:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::435226287336:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::435226287336:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 4,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -82,7 +83,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-07-20T08:00:56.023Z",
-    "registeredBy": "arn:aws:iam::312566475948:root",
+    "registeredAt": "2023-08-03T17:52:15.528Z",
+    "registeredBy": "arn:aws:iam::435226287336:root",
     "tags": []
 }
