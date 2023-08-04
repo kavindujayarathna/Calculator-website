@@ -15,10 +15,10 @@ jobs:
 
 
       - name: Build and tag Docker image
-        run: docker build -t calculator-image .
+        run: docker build -t calculator-image1 .
 
 
 
       - name: Docker Run
         run: |
-         docker run --name calculator-app -p 80:80 calculator-image
+         docker run --name calculator-app -p 80:80 calculator-image1
