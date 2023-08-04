@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/calculator-website:11",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/calculator-website:1",
     "containerDefinitions": [
         {
             "name": "calculator-website",
