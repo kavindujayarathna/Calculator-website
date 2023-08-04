@@ -22,7 +22,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/",
+                    "awslogs-group": "/ecs/calculator-website",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 }
