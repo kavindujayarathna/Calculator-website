@@ -21,4 +21,4 @@ jobs:
 
       - name: Docker Run
         run: |
-         docker run --name calculator-app -p 80:80 calculator-image1
+         docker run --name calculator-image1 -p 80:80 calculator-image1
