@@ -17,9 +17,8 @@ jobs:
       - name: Build and tag Docker image
         run: docker build -t calculator-image .
 
-      - name: Push Docker image to Docker Hub
-        run: docker push kavindujayarathna/calculator-website:1.4
+
 
       - name: Docker Run
         run: |
-           docker run --name calculator-app calculator-image
+           docker run --name -p 80:80 calculator-app calculator-image
