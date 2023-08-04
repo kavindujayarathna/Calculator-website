@@ -1,12 +1,14 @@
-name: Docker Publish
+name: Docker Publish and Deploy
+
 on:
   push:
     branches:
-      - main # Replace with your main branch name, if different
+      - main
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: self-hosted # Specify the self-hosted runner for this job
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,7 +17,19 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and tag Docker image
-        run: docker build -t kavindujayarathna/calculator-website:1.1 . # Replace with your image tag
+        run: docker build -t kavindujayarathna/calculator-website:1.1 .
 
       - name: Push Docker image to Docker Hub
-        run: docker push kavindujayarathna/calculator-website:1.1 # Replace with your image tag
+        run: docker push kavindujayarathna/calculator-website:1.1
+
+      # Additional steps for deployment to EC2 instance
+      - name: Deploy to EC2 instance
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # Add your private SSH key to GitHub Secrets
+        run: |
+          ssh -i "$SSH_PRIVATE_KEY" ec2-user@43.204.143.105 "docker pull kavindujayarathna/calculator-website:1.1"
+          ssh -i "$SSH_PRIVATE_KEY" ec2-user@43.204.143.105 "docker stop calculator-website || true"
+          ssh -i "$SSH_PRIVATE_KEY" ec2-user@43.204.143.105 "docker rm calculator-website || true"
+          ssh -i "$SSH_PRIVATE_KEY" ec2-user@43.204.143.105 "docker run -d --name myapp -p 80:80 kavindujayarathna/calculator-website:1.1"
+
+
