@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "calculator-website",
-            "image": "435226287336.dkr.ecr.ap-south-1.amazonaws.com/calculator-website:1.6",
+            "image": "435226287336.dkr.ecr.ap-south-1.amazonaws.com/calculator-website",
             "cpu": 0,
             "portMappings": [
                 {
