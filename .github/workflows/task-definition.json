@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/calculator-website:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/task-definition:1",
     "containerDefinitions": [
         {
             "name": "calculator-website",
@@ -16,8 +16,10 @@
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -25,15 +27,15 @@
                     "awslogs-group": "/ecs/calculator-website",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
-                }
+                },
+                "secretOptions": []
             }
         }
     ],
-    "family": "calculator-website",
-    "taskRoleArn": "arn:aws:iam::435226287336:role/ecsTaskExecutionRole",
+    "family": "task-definition",
     "executionRoleArn": "arn:aws:iam::435226287336:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 11,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -48,9 +50,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -71,7 +70,6 @@
         "FARGATE"
     ],
     "requiresCompatibilities": [
-        "EC2",
         "FARGATE"
     ],
     "cpu": "1024",
@@ -80,7 +78,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-08-04T11:43:21.420Z",
-    "registeredBy": "arn:aws:iam::435226287336:user/github-actions",
+    "registeredAt": "2023-08-04T17:30:12.796Z",
+    "registeredBy": "arn:aws:iam::435226287336:root",
     "tags": []
 }
