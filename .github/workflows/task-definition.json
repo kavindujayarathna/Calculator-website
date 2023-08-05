@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:435226287336:task-definition/task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:575040891716:task-definition/calculator-task:1",
     "containerDefinitions": [
         {
             "name": "calculator-website",
-            "image": "435226287336.dkr.ecr.ap-south-1.amazonaws.com/calculator-website",
+            "image": "575040891716.dkr.ecr.ap-south-1.amazonaws.com/calculator-website:1.1",
             "cpu": 0,
             "portMappings": [
                 {
@@ -24,7 +24,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/calculator-website",
+                    "awslogs-group": "/ecs/",
                     "awslogs-region": "ap-south-1",
                     "awslogs-stream-prefix": "ecs"
                 },
@@ -32,8 +32,9 @@
             }
         }
     ],
-    "family": "task-definition",
-    "executionRoleArn": "arn:aws:iam::435226287336:role/ecsTaskExecutionRole",
+    "family": "calculator-task",
+    "taskRoleArn": "arn:aws:iam::575040891716:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::575040891716:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
@@ -50,6 +51,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -78,7 +82,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-08-04T17:30:12.796Z",
-    "registeredBy": "arn:aws:iam::435226287336:root",
+    "registeredAt": "2023-08-05T01:47:15.212Z",
+    "registeredBy": "arn:aws:iam::575040891716:root",
     "tags": []
 }
