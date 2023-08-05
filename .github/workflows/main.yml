@@ -56,29 +56,20 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: calculator-website
-          IMAGE_TAG: 2.2
+          IMAGE_TAG: 2.3
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
-  deploy-to-ecs:   
-     needs: push-to-ecr
-     name: Deploy To ECS
-     runs-on: ubuntu-latest
-    
-     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-  
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: .github/workflows/task-definition.json
           container-name: calculator-website
-          image: $IMAGE_TAG
-  
+          image: ${{ steps.build-image.outputs.image }}
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
